@@ -1,0 +1,64 @@
+{
+    "brand_map": [
+        {
+            "name": "Investor Web Proxy",
+            "remove_powered_by_okta": false,
+            "agree_to_custom_privacy_policy": false,
+            "defaul_app": "Investor Web",
+            "logo": "path/to/logo.png",
+            "signInPageTouchPointVariant": "BACKGROUND_SECONDARY_COLOR",
+            "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
+            "errorPageTouchPointVariant": "OKTA_DEFAULT",
+            "emailTemplateTouchPointVariant": "FULL_THEME",
+            "primaryColorContrastHex": "#ffffff",
+            "primaryColorHex": "#1662dd",
+            "secondaryColorContrastHex": "#000000",
+            "secondaryColorHex": "#ebebed",
+            "template_email": [
+                {
+                    "template_name": "EmailChallenge",
+                    "language": "en",
+                    "is_default": true,
+                    "subject": "American Funds by Capital Group - One-Time Passcode",
+                    "body": "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html>\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n  </head>\n  <body>\n    <div>\n      <table\n        style=\"\n          font-family: AvenirNextLTCom-Regular, Arial, Verdana, sans-serif;\n          font-size: 16px;\n          color: #333333;\n          width: 98%;\n          max-width: 600px;\n          float: none;\n          margin: 0 auto;\n        \"\n        border=\"0\"\n        cellpadding=\"0\"\n        cellspacing=\"0\"\n        valign=\"top\"\n        align=\"left\"\n      >\n        <tr bgcolor=\"#ffffff\">\n          <td>\n            <table\n              bgcolor=\"#ffffff\"\n              style=\"width: 100%; line-height: 20px; padding-right: 24px\"\n              cellpadding=\"0\"\n            >\n              <tr>\n                <td style=\"align-items: left\">\n                  <img\n                    src=\"${brand.theme.logo}\"\n                    alt=\"CAPITAL GROUP\"\n                    style=\"\n                      padding: 16px 0 10px 24px;\n                      width:240px;\n                      height: 38px;\n                    \"\n                  />\n                </td>\n                <td\n                  style=\"\n                    align-items: right;\n                    width: 65px;\n                    padding-bottom: 16px;\n                    vertical-align: bottom;\n                    text-align: right;\n                  \"\n                >\n                  <a\n                    href=\"https://www.d13.dev.capitalgroup.com/individual/accounts/login\"\n                    style=\"\n                      color: #005f9e;\n                      font-size: 16px;\n                      text-decoration: none;\n                    \"\n                    ><strong>Log In</strong></a\n                  >\n                </td>\n              </tr>\n            </table>\n            <table\n              bgcolor=\"#ebf3f7\"\n              style=\"\n                width: 100%;\n                padding: 32px 24px;\n                border-bottom: 2px solid #005f9e;\n              \"\n              cellpadding=\"0\"\n            >\n              <tr>\n                <td\n                  style=\"\n                    width: 100%;\n                    font-family: AvenirNextLTCom-Demi, Arial, Verdana,\n                      sans-serif;\n                    font-size: 30px;\n                    line-height: 38px;\n                  \"\n                >\n                  One-time passcode has been requested\n                </td>\n              </tr>\n            </table>\n            <table\n              bgcolor=\"#ffffff\"\n              style=\"\n                width: 100%;\n                line-height: 24px;\n                padding: 24px;\n                border-bottom: 2px solid #005f9e;\n              \"\n              cellpadding=\"0\"\n            >\n              <tr>\n                <td>\n                  $!{StringTool.escapeHtml($!{user.profile.firstName})},\n                  <p>\n                  Here is the Security Code you will need to help us recognize\n                  your computer.\n                  </p>\n                  <p>\n                    Your Security Code is:\n                    <strong>${verificationToken}</strong>. Do not share it.\n                  </p>\n\n                  <p>\n                    This code will expire in 5 minutes. Capital Group will never\n                    ask for it.<br />\n                    Enter your Security Code on the page you are currently on\n                    within the Capital Group website.\n                  </p>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  If you didn&apos;t request this transaction or if you suspect\n                  suspicious activity, contact us at\n                  <strong>(800) 421-0180</strong>, 8:00 a.m. to 7:00 p.m. ET,\n                  Monday through Friday.\n                  <p>\n                    As a reminder, Capital Group will never ask you to provide\n                    personal or account information via text or email. Visit\n                    <a href=\"https://www.capitalgroup.com/individual/security/best-practices-for-protecting-your-account.html\" style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>Account Security</strong></a\n                    >\n                    for additional tips and best practices.\n                  </p>\n                    A confirmation will be sent to you with additional details.\n                </td>\n              </tr>\n            </table>\n            <table\n              bgcolor=\"#fbfbfb\"\n              style=\"width: 100%; padding: 24px; line-height: 24px; font-size: 14px\"\n              cellpadding=\"0\"\n            >\n              <tr>\n                <td>\n                  American Funds automatically sends certain alerts via email to\n                  customers who have provided an email address.\n                  <p>\n                    <strong>Please do not reply to this message.</strong>\n                  </p>\n                  <p>\n                    If you have questions about this email, please\n                    <a href=\"https://www.capitalgroup.com/individual/service-and-support/contact-us.html\" style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>contact us.</strong></a\n                    >\n                  </p>\n                  <p>\n                    To opt out of future email notifications, log in to your\n                    account and go to the\n                    <a href=\"#\" style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>communications preferences</strong></a\n                    >\n                    page.\n                  </p>\n                  <p>\n                    Your privacy and security are important to us.<br />\n                    See our privacy policy (<a\n                      href=\"https://www.capitalgroup.com/individual/ca/en/legal.html\"\n                      style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>Canada</strong></a\n                    >\n                    |\n                    <a \n                      href=\"https://www.capitalgroup.com/content/eacg/entry-page/shared/privacy.html\" \n                      style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>Europe & Asia</strong></a\n                    >\n                    |\n                    <a href=\"https://www.capitalgroup.com/advisor/privacy.html\" style=\"color: #005f9e; text-decoration: none\"\n                      ><strong>United States</strong></a\n                    >).\n                  </p>\n                  <p>\n                    Notice: This message may contain confidential and legally\n                    privileged information intended only for the addressee. If\n                    you are not the addressee, you are prohibited from\n                    disclosing, copying, distributing or taking any action on\n                    the contents of this message. If you have received this\n                    message in error, please contact the sender immediately.\n                  </p>\n                  © 2023 American Funds Distributors, Inc., member FINRA. 333 S.\n                  Hope Street, Los Angeles, CA 90071-1406 USA\n                </td>\n              </tr>\n            </table>\n          </td>\n        </tr>\n      </table>\n    </div>\n  </body>\n</html>\n"
+                }
+            ]
+        },
+        {
+            "name": "capitalgroup-investors-webmod_default",
+            "remove_powered_by_okta": false,
+            "agree_to_custom_privacy_policy": false,
+            "defaul_app": "Okta Dashboard",
+            "logo": "path/to/logo.png",
+            "signInPageTouchPointVariant": "OKTA_DEFAULT",
+            "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
+            "errorPageTouchPointVariant": "OKTA_DEFAULT",
+            "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+            "primaryColorContrastHex": "#ffffff",
+            "primaryColorHex": "#1662dd",
+            "secondaryColorContrastHex": "#000000",
+            "secondaryColorHex": "#ebebed",
+            "template_email": []
+        }
+    ],
+    "domains": [
+        {
+            "name": "investor",
+            "brand": "Investor Web Proxy",
+            "url": "investor-identity.d15.dev.capitalgroup.com",
+            "certificateSourceType": "MANUAL"
+        },
+        {
+            "name": "advisor",
+            "brand": "Investor Web Proxy",
+            "url": "advisor-identity.d15.dev.capitalgroup.com",
+            "certificateSourceType": "MANUAL"
+        },
+        {
+            "name": "advisor_accounts",
+            "brand": "Investor Web Proxy",
+            "url": "advisor-accounts-identity.d15.dev.capitalgroup.com",
+            "certificateSourceType": "MANUAL"
+        }
+    ]
+}

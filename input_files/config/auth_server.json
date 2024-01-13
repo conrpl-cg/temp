@@ -1,0 +1,295 @@
+{
+    "auth_server": [
+        {
+            "audiences": [
+                "api://investor-system"
+            ],
+            "description": "Machine-to-Machine Authorization Server",
+            "name": "Investor System",
+            "issuerMode": "ORG_URL",
+            "status": "ACTIVE"
+        },
+        {
+            "audiences": [
+                "api://investor"
+            ],
+            "description": "Authorization server for investors",
+            "name": "Investor Server",
+            "issuerMode": "DYNAMIC",
+            "status": "ACTIVE"
+        }
+    ],
+    "scopes": [
+        {
+            "parent": "Investor System",
+            "name": "system",
+            "identify": "system_investor",
+            "displayName": "System",
+            "consent": "IMPLICIT",
+            "metadataPublish": "NO_CLIENTS"
+        }
+    ],
+    "claims": [
+        {
+            "parent": "Investor System",
+            "name": "sub",
+            "key": "ac_sub",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "EXPRESSION",
+            "value": "(appuser != null) ? appuser.userName : app.clientId",
+            "scopes": [],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "pty",
+            "key": "ac_pty",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "EXPRESSION",
+            "value": "user.partyId",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "groups",
+            "key": "ac_groups",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "GROUPS",
+            "value": "ROLE_ADVISOR|ROLE_INVESTOR|ROLE_ADVISOR_DASHBOARD|ROLE_ADVISOR_VISION",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": "REGEX"
+        },
+        {
+            "parent": "Investor Server",
+            "name": "sub",
+            "key": "ac_sub_is",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "EXPRESSION",
+            "value": "(appuser != null && user != null) ? user.id : app.clientId",
+            "scopes": [],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "vid",
+            "key": "ac_vid",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "EXPRESSION",
+            "value": "isMemberOfGroupName(\"ROLE_ADVISOR\") ? user.username : \"\"",
+            "scopes": [],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "pty",
+            "key": "id_pty",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "EXPRESSION",
+            "value": "user.partyId",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "pn",
+            "key": "id_pn",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "EXPRESSION",
+            "value": "isMemberOfGroupName(\"ROLE_INVESTOR\") ? user.primaryPhone : \"\"",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "loginId",
+            "key": "id_loginId",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "EXPRESSION",
+            "value": "appuser.userName",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "groups",
+            "key": "id_groups",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "GROUPS",
+            "value": "ROLE_ADVISOR|ROLE_INVESTOR|Investors MFA Group|ROLE_ADVISOR|ROLE_INVESTOR|ROLE_ADVISOR_DASHBOARD|ROLE_ADVISOR_VISION",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": "REGEX"
+        },
+        {
+            "parent": "Investor Server",
+            "name": "fn",
+            "key": "id_fn",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "EXPRESSION",
+            "value": "user.firstName",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        },
+        {
+            "parent": "Investor Server",
+            "name": "ln",
+            "key": "id_ln",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "EXPRESSION",
+            "value": "user.lastName",
+            "scopes": [
+                "openid"
+            ],
+            "alwaysIncludeInToken": true,
+            "groupFilterType": null
+        }
+    ],
+    "auth_server_policies": [
+        {
+            "parent": "Investor System",
+            "status": "ACTIVE",
+            "name": "Default Policy",
+            "description": "Default Policy",
+            "priority": 1,
+            "ref": [
+                "Digital Investor Platform Service (Internal)"
+            ]
+        },
+        {
+            "parent": "Investor Server",
+            "status": "ACTIVE",
+            "name": "Advisor Policies",
+            "description": "Advisor Policies",
+            "priority": 1,
+            "ref": [
+                "Advisor Vision Web",
+                "Advisor Web",
+                "Advisor Dashboard Web"
+            ]
+        },
+        {
+            "parent": "Investor Server",
+            "status": "ACTIVE",
+            "name": "Investor Policy",
+            "description": "Investor Policy",
+            "priority": 2,
+            "ref": [
+                "Investor Web",
+                "Digital Investor Platform Service",
+                "QA Service"
+            ]
+        }
+    ],
+    "auth_server_policies_rules": [
+        {
+            "authServerParent": "Investor System",
+            "policyParent": "Default Policy",
+            "status": "ACTIVE",
+            "name": "Default Rule",
+            "priority": 1,
+            "grantTypeWhitelist": [
+                "client_credentials"
+            ],
+            "scopeWhitelist": [
+                "system"
+            ],
+            "group_whitelist": [
+                "EVERYONE"
+            ],
+            "accessTokenLifetimeMinutes": 120,
+            "refreshTokenLifetimeMinutes": 0,
+            "refreshTokenWindowMinutes": 10080
+        },
+        {
+            "authServerParent": "Investor Server",
+            "policyParent": "Advisor Policies",
+            "status": "ACTIVE",
+            "name": "Advisor Rule",
+            "priority": 1,
+            "grantTypeWhitelist": [
+                "client_credentials",
+                "authorization_code",
+                "interaction_code",
+                "urn:ietf:params:oauth:grant-type:saml2-bearer"
+            ],
+            "scopeWhitelist": [
+                "address",
+                "email",
+                "offline_access",
+                "openid",
+                "phone",
+                "profile"
+            ],
+            "group_whitelist": [
+                "ROLE_ADVISOR",
+                "ROLE_ADVISOR_DASHBOARD",
+                "ROLE_ADVISOR_VISION"
+            ],
+            "accessTokenLifetimeMinutes": 5,
+            "refreshTokenLifetimeMinutes": 0,
+            "refreshTokenWindowMinutes": 5
+        },
+        {
+            "authServerParent": "Investor Server",
+            "policyParent": "Investor Policy",
+            "status": "ACTIVE",
+            "name": "Investor Rule",
+            "priority": 1,
+            "grantTypeWhitelist": [
+                "client_credentials",
+                "authorization_code",
+                "interaction_code",
+                "password"
+            ],
+            "scopeWhitelist": [
+                "address",
+                "email",
+                "offline_access",
+                "openid",
+                "phone",
+                "profile"
+            ],
+            "group_whitelist": [
+                "EVERYONE"
+            ],
+            "accessTokenLifetimeMinutes": 5,
+            "refreshTokenLifetimeMinutes": 0,
+            "refreshTokenWindowMinutes": 5
+        }
+    ]
+}

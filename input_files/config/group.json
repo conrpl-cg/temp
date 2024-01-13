@@ -1,0 +1,80 @@
+{
+    "group_map": [
+        {
+            "name": "Investors MFA Group",
+            "description": "Group for Investors to prompt for 2FA "
+        },
+        {
+            "name": "ROLE_INVESTOR",
+            "description": "All Investors "
+        },
+        {
+            "name": "Everyone",
+            "description": "All users in your organization"
+        },
+        {
+            "name": "ROLE_ADMIN_BFF_API_ACCESS",
+            "description": "Group for okta system users that have api tokens under their accounts that can be used to access the minimum required permissions to operate as an API token in the BFF service layer. "
+        },
+        {
+            "name": "ROLE_ADVISOR_VISION",
+            "description": "ROLE_ADVISOR_VISION"
+        },
+        {
+            "name": "ROLE_ADVISOR",
+            "description": "All Advisors "
+        },
+        {
+            "name": "ROLE_TEST",
+            "description": "All accounts QA is using, do not delete "
+        },
+        {
+            "name": "ROLE_ADVISOR_DASHBOARD",
+            "description": "ROLE_ADVISOR_DASHBOARD"
+        },
+        {
+            "name": "ROLE_ADMIN",
+            "description": "Group for okta super admins "
+        },
+        {
+            "name": "ROLE_ADMIN_CSR_ACCESS",
+            "description": "Group for okta CSRs to manage state of an okta user (ie unlock account, reset password, etc.) They cannot delete or create a user. Full CRUD operations available."
+        },
+        {
+            "name": "ROLE_BDD_AUTOMATION",
+            "description": "Group for BDD integration testing "
+        },
+        {
+            "name": "Okta Administrators",
+            "description": "Okta manages this group, which contains all administrators in your organization."
+        }
+    ],
+    "group_assignments": [{
+            "name": "Digital Inestor",
+            "app_name":"Digital Investor Platform Service",
+            "groups":[{
+                "name":"ROLE_INVESTOR",
+                "priority":2
+            }]
+        },
+        {
+            "name": "Inestor Web",
+            "app_name":"Investor Web",
+            "groups":[{
+                "name":"Investors MFA Group",
+                "priority":1
+            },
+            {
+                "name":"ROLE_INVESTOR",
+                "priority":2
+            }]
+        },
+        {
+            "name": "QA Service",
+            "app_name":"QA Service",
+            "groups":[{
+                "name":"ROLE_INVESTOR",
+                "priority":1
+            }]
+    }]
+}

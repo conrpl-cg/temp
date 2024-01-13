@@ -1,0 +1,84 @@
+{
+    "profile_enrollment": [
+        {
+            "name": "Investors",
+            "rule": {
+                "email_verification": true,
+                "target_group_name": "",
+                "unknownUserAction": "DENY",
+                "access": "ALLOW",
+                "progressiveProfilingAction": "",
+                "uiSchemaId": "uis7kvhlw2ZKxFGiS1d7",
+                "profile_attributes": [
+                    {
+                        "name": "email",
+                        "label": "Primary email",
+                        "required": true
+                    },
+                    {
+                        "name": "login",
+                        "label": "Username",
+                        "required": true
+                    },
+                    {
+                        "name": "firstName",
+                        "label": "First name",
+                        "required": true
+                    },
+                    {
+                        "name": "lastName",
+                        "label": "Last name",
+                        "required": true
+                    }
+                ]
+            },
+            "apps": [
+                "Investor Web",
+                "Digital Investor Platform Service"
+            ]
+        },
+        {
+            "name": "Advisor Policy",
+            "rule": {
+                "email_verification": true,
+                "target_group_name": "",
+                "unknownUserAction": "DENY",
+                "access": "ALLOW",
+                "progressiveProfilingAction": "",
+                "uiSchemaId": "uisba3omkzfsCbwTb1d7",
+                "profile_attributes": [
+                    {
+                        "name": "email",
+                        "label": "Primary email",
+                        "required": true
+                    }
+                ]
+            },
+            "apps": [
+                "Advisor Web"
+            ]
+        },
+        {
+            "name": "Advisor Saml Policy",
+            "rule": {
+                "email_verification": false,
+                "target_group_name": "",
+                "unknownUserAction": "DENY",
+                "access": "ALLOW",
+                "progressiveProfilingAction": "",
+                "uiSchemaId": "uisbclc0tsnnaOPWU1d7",
+                "profile_attributes": [
+                    {
+                        "name": "email",
+                        "label": "Primary email",
+                        "required": true
+                    }
+                ]
+            },
+            "apps": [
+                "Advisor Vision Web",
+                "Advisor Dashboard Web"
+            ]
+        }
+    ]
+}

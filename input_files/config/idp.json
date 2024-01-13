@@ -1,0 +1,35 @@
+{
+    "idp_map": [
+        {
+            "name": "Advisor Vision IdP",
+            "sso_url": "https://www.capitalgroup.com/advisor/accounts/login.htm",
+            "sso_destination": "https://www.capitalgroup.com/advisor/accounts/login.htm",
+            "issuer": "https://www.capitalgroup.com/api/investor/identity/saml2",
+            "certificate": "vision",
+            "groups": [
+                "ROLE_ADVISOR_VISION"
+            ],
+            "usernameTemplate": "idpuser.subjectNameId",
+            "maxClockSkew": 120000,
+            "profileMaster": false
+        },
+        {
+            "name": "Advisor Dashboard Idp",
+            "sso_url": "https://www.capitalgroup.com/advisor/accounts/login.htm",
+            "sso_destination": "https://www.capitalgroup.com/advisor/accounts/login.htm",
+            "issuer": "https://www.capitalgroup.com/api/investor/identity/saml2",
+            "certificate": "vision",
+            "groups": [
+                "ROLE_ADVISOR_DASHBOARD"
+            ],
+            "usernameTemplate": "idpuser.subjectNameId",
+            "maxClockSkew": 120000,
+            "profileMaster": true
+        }
+    ],
+    "cert_map": [
+        {
+            "name": "vision"
+        }
+    ]
+}

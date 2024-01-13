@@ -1,0 +1,141 @@
+{
+    "authentication_policy": [
+        {
+            "name": "Password + TOTP",
+            "description": "Investor Web authentication policy to always enforce TOTP for every user along side password for BFF hybrid login."
+        },
+        {
+            "name": "Password-1FA QA",
+            "description": "Authentication policy for QA application for 1fa resource owner grant type password authentication."
+        },
+        {
+            "name": "Advisor Dashboard SAML Policy",
+            "description": ""
+        },
+        {
+            "name": "Advisor Vision Saml Policy",
+            "description": ""
+        },
+        {
+            "name": "DIP-Parent (Advisor Web) Authentication Policy",
+            "description": "DIP-Parent (Advisor Web) Authentication Policy"
+        }
+    ],
+    "authentication_policy_data": [
+        {
+            "name": "Any two factors"
+        }
+    ],
+    "authentication_rule": {
+        "any_two-catchall": {
+            "name_parent": "Any two factors",
+            "name": "Catch-all Rule",
+            "priority": 98,
+            "factorMode": "2FA",
+            "reauthenticateIn": "PT43800H",
+            "groups": [],
+            "access": "ALLOW",
+            "constraints": []
+        },
+        "advisor_dashboard_saml-rule": {
+            "name_parent": "Advisor Dashboard SAML Policy",
+            "name": "Advisor Dashboard SAML Rule",
+            "priority": 0,
+            "groups": [
+                "ROLE_ADVISOR_DASHBOARD"
+            ],
+            "access": "ALLOW",
+            "factorMode": "1FA",
+            "reauthenticateIn": "PT43800H",
+            "constraints": []
+        },
+        "advisor_dashboard_saml-catchall": {
+            "name_parent": "Advisor Dashboard SAML Policy",
+            "name": "Catch-all Rule",
+            "priority": 98,
+            "groups": [],
+            "access": "DENY",
+            "factorMode": "2FA",
+            "reauthenticateIn": "PT43800H",
+            "constraints": [
+                {
+                    "possession": {
+                        "deviceBound": "REQUIRED"
+                    }
+                }
+            ]
+        },
+        "advisor_vision_saml-rule": {
+            "name_parent": "Advisor Vision Saml Policy",
+            "name": "Advisor Vision SAML Rule",
+            "priority": 0,
+            "groups": [
+                "ROLE_ADVISOR_VISION"
+            ],
+            "access": "ALLOW",
+            "factorMode": "1FA",
+            "reauthenticateIn": "PT43800H",
+            "constraints": [
+                {
+                    "knowledge": {
+                        "types": [
+                            "password"
+                        ]
+                    }
+                }
+            ]
+        },
+        "advisor_vision_saml-catchall": {
+            "name_parent": "Advisor Vision Saml Policy",
+            "name": "Catch-all Rule",
+            "priority": 98,
+            "groups": [],
+            "access": "DENY",
+            "factorMode": "2FA",
+            "reauthenticateIn": "PT12H",
+            "constraints": [
+                {
+                    "possession": {
+                        "deviceBound": "REQUIRED"
+                    }
+                }
+            ]
+        },
+        "dip-parent-rule": {
+            "name_parent": "DIP-Parent (Advisor Web) Authentication Policy",
+            "name": "DIP-Parent Authentication Policy Rule",
+            "priority": 0,
+            "groups": [
+                "ROLE_ADVISOR"
+            ],
+            "access": "ALLOW",
+            "factorMode": "1FA",
+            "reauthenticateIn": "PT720H",
+            "constraints": [
+                {
+                    "knowledge": {
+                        "types": [
+                            "password"
+                        ]
+                    }
+                }
+            ]
+        },
+        "dip-parent-catchall": {
+            "name_parent": "DIP-Parent (Advisor Web) Authentication Policy",
+            "name": "Catch-all Rule",
+            "priority": 98,
+            "groups": [],
+            "access": "DENY",
+            "factorMode": "2FA",
+            "reauthenticateIn": "PT12H",
+            "constraints": [
+                {
+                    "possession": {
+                        "deviceBound": "REQUIRED"
+                    }
+                }
+            ]
+        }
+    }
+}

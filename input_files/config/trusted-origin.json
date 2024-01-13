@@ -1,0 +1,74 @@
+{
+    "trusted_origin":[
+        {
+            "name": "Localhost 3002",
+            "origin": "http://localhost:3002",
+            "scopes": ["CORS","REDIRECT"]
+        },
+        {
+            "name": "Localhost 3000",
+            "origin": "http://localhost:3000",
+            "scopes": ["CORS","REDIRECT","IFRAME_EMBED"]
+        },
+        {
+            "name": "LocalHost 8449",
+            "origin": "https://localhost:8449",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "d15",
+            "origin": "https://www.d15.dev.capitalgroup.com",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "d13 QA",
+            "origin": "https://www.d13.dev.capitalgroup.com",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "Local Docker 9080",
+            "origin": "http://localhost:9080",
+            "scopes": ["CORS","REDIRECT"]
+        },
+        {
+            "name": "D13 SSO Utility Web (AWS ALB)",
+            "origin": "https://dip-sso-utility-web-d13.usw1.digital.aws-dev.capgroup.com",
+            "scopes": ["CORS","REDIRECT"]
+        },
+        {
+            "name": "D15 SSO Utility Web (AWS ALB)",
+            "origin": "https://dip-sso-utility-web-d15.usw1.digital.aws-dev.capgroup.com",
+            "scopes": ["CORS","REDIRECT"]
+        },
+        {
+            "name": "Localhost 3001",
+            "origin": "http://localhost:3001",
+            "scopes": ["CORS","REDIRECT","IFRAME_EMBED"]
+        },
+        {
+            "name": "Localhost 3006",
+            "origin": "http://localhost:3006/",
+            "scopes": ["CORS","REDIRECT","IFRAME_EMBED"]
+        },
+        {
+            "name": "cg local poc",
+            "origin": "http://localhost:5173",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "Localhost 3003",
+            "origin": "http://localhost:3003",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "Localhost 3004",
+            "origin": "http://localhost:3004",
+            "scopes": ["CORS"]
+        },
+        {
+            "name": "local host https",
+            "origin": "https://192.168.1.106:3000/",
+            "scopes": ["CORS"]
+        }
+    ]
+}

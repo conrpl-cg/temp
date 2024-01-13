@@ -1,0 +1,92 @@
+{
+    "user_type": [
+        {
+            "name": "USER_INVESTOR",
+            "displayName": "USER_INVESTOR",
+            "description": "Profile type for the investor user with party id and sequence "
+        },
+        {
+            "name": "advisor",
+            "displayName": "Advisor",
+            "description": "Profile type for the advisor user with party id "
+        }
+    ],
+    "attributes": {
+        "others": []
+    },
+    "mapping": [
+        {
+            "nameId": "avdDashIdp",
+            "sourceType": "idp",
+            "source": "Advisor Dashboard Idp",
+            "target": "advisor",
+            "delete": false,
+            "attributes": [
+                {
+                    "id": "login",
+                    "expression": "appuser.userName",
+                    "pushStatus": "PUSH"
+                },
+                {
+                    "id": "firstName",
+                    "expression": "appuser.firstName",
+                    "pushStatus": "PUSH"
+                },
+                {
+                    "id": "lastName",
+                    "expression": "appuser.lastName",
+                    "pushStatus": "PUSH"
+                },
+                {
+                    "id": "email",
+                    "expression": "appuser.email",
+                    "pushStatus": "PUSH"
+                },
+                {
+                    "id": "partyId",
+                    "expression": "appuser.partyId",
+                    "pushStatus": "PUSH"
+                },
+                {
+                    "id": "vid",
+                    "expression": "appuser.vid",
+                    "pushStatus": "PUSH"
+                }
+            ]
+        },
+        {
+            "nameId": "advVisIdp",
+            "sourceType": "idp",
+            "source": "Advisor Vision IdP",
+            "target": "advisor",
+            "delete": false,
+            "attributes": [
+                {
+                    "id": "login",
+                    "expression": "appuser.userName",
+                    "pushStatus": "DONT_PUSH"
+                },
+                {
+                    "id": "firstName",
+                    "expression": "appuser.userName",
+                    "pushStatus": "DONT_PUSH"
+                },
+                {
+                    "id": "lastName",
+                    "expression": "appuser.userName",
+                    "pushStatus": "DONT_PUSH"
+                },
+                {
+                    "id": "email",
+                    "expression": "appuser.email",
+                    "pushStatus": "DONT_PUSH"
+                },
+                {
+                    "id": "partyId",
+                    "expression": "appuser.partyId",
+                    "pushStatus": "DONT_PUSH"
+                }
+            ]
+        }
+    ]
+}

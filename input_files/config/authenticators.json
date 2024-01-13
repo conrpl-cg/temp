@@ -1,0 +1,69 @@
+{
+    "authenticators":[
+        {
+            "name": "Email",
+            "key": "okta_email",
+            "status": "ACTIVE",
+            "settings":{
+                "allowedFor": "any",
+                "tokenLifetimeInMinutes": 10
+            }
+        },
+        {
+            "name": "Phone",
+            "key": "phone_number",
+            "status": "ACTIVE",
+            "settings":{
+                "allowedFor": "any"
+            }
+        },
+        {
+            "name": "Password",
+            "key": "okta_password",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Identity TOTP",
+            "key": "custom_otp",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Security Question",
+            "key": "security_question",
+            "status": "ACTIVE",
+            "settings":{
+                "allowedFor": "any"
+            }
+        }
+    ],
+    "mfa_policy":{
+        "bdd_enrollment":{
+            "name":"QA/BDD ENROLLMENT POLICY",
+            "description":"Used for QA/BDD otp verification.",
+            "rule":{
+                "name":"QA/BDD Enrollment Rule"
+            }
+        },
+        "oidc_enrollment":{
+            "name":"OIDC Enrollment Policy",
+            "description":"This policy is for the OIDC App",
+            "rule":{
+                "name": "OIDC Authenticator Enrollment Rule"
+            }
+        },
+        "advisor_enrollment":{
+            "name":"Advisor Enrollment Policy",
+            "description":"",
+            "rule":{
+                "name": "Advisor Enrollment Rule"
+            }
+        },
+        "advisor_saml_enrollment":{
+            "name":"Advisor Saml Enrollment Policy",
+            "description":"",
+            "rule":{
+                "name": "Advisor Saml enrollment rule"
+            }
+        }
+    }
+}
